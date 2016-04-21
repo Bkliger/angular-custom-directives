@@ -15,25 +15,32 @@
       <div class="container">
         <header class='navbar'>
           <h1 class='pull-left'>Cards Against Assembly</h1>
+          <section id="scores" class='container-fluid' ng-controller="PlayersController as players">
+            <div class='row'>
+              <!-- index.html -->
+              <div class='col-sm-6 col-md-6 col-lg-4' ng-repeat="player in players.players" >
+                <scores taco1="{{player.name}}{{player.points}}"></scores>
+              </div>
+              <scores taco1="new score"></scores>
+            </div>
+          </section>
 
-          <scores></scores>
         </header>
 
         <section id="cards" class='container-fluid' ng-controller="CardsController as cards">
           <div class='row'>
-
+            <!-- index.html -->
             <div class='col-sm-6 col-md-6 col-lg-4' ng-repeat="card in cards.questions" >
-              <div class='card'>
-                <h4 class="card-title">{{card.question}}</h4>
-                <h6>Cards Against Assembly</h6>
-              </div>
+              <card taco="{{card.question}}"></card>
             </div>
-
           </div>
         </section>
 
       <footer>
-        <p>Made with <span class='heart'>♥︎</span> at General Assembly</p>
+        </section>
+          <hr/>
+          <card taco="Why is Angular so awesome?"></card>
+        <footer>
       </footer>
       </div>
     </body>

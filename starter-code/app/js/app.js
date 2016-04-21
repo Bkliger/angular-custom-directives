@@ -1,7 +1,34 @@
 angular
   .module('CardsAgainstAssembly', [])
   .controller('CardsController', CardsController)
-  .controller('PlayersController', PlayersController);
+  .controller('PlayersController', PlayersController)
+  .directive('card', CardViewDirective)
+  .directive('scores', ScoresViewDirective);
+
+  function CardViewDirective(){
+  var directive = {
+    restrict: 'E',
+    replace: false,
+    templateUrl: './template/_cardView.html',
+    scope : {
+        taco: '@'
+    }
+  };
+  return directive;
+}
+
+  function ScoresViewDirective(){
+  var directive = {
+    restrict: 'E',
+    replace: false,
+    templateUrl: './template/_scoresView.html',
+    scope : {
+        taco1: '@'
+    }
+  };
+  return directive;
+}
+
 
 function CardsController() {
   var vm = this;
